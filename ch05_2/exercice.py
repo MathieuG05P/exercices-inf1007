@@ -8,22 +8,51 @@ def format_bill_total(data):
 	INDEX_NAME = 0
 	INDEX_QUANTITY = 1
 	INDEX_PRICE = 2
+	TAX_RATE = 0.15
+	prix = 0
+	for achat in data:
+		prix += achat[INDEX_QUANTITY]*achat[INDEX_PRICE]
 
-	return ""
+	taxes = prix * TAX_RATE
+	prix_total = prix + taxes
+	resultat = ""
+	resultat += f"SOUS TOTAL {prix:>10.2f} $"
+	resultat += f"\n" + f"TAXES      {taxes:>10.2f} $"
+	resultat += f"\n" f"TOTAL      {prix_total:>10.2f} $"
+ 
+	return resultat
 
 def format_bill_items(data):
 	INDEX_NAME = 0
 	INDEX_QUANTITY = 1
 	INDEX_PRICE = 2
+	TAX_RATE = 0.15
+	# Trouver la longueur maximale des noms d'item.
+	max_length = 0
+	for item in data:
+		if len(item[INDEX_NAME]) > max_length:
+			max_length = len(item[INDEX_NAME])
 
-	return ""
+	# Pour chaque item, formater le nom sur la longueur maximale et le prix total (qté x prix) sur 10 caractère et 2 décimales.
+	result = ""
+	for item in data:
+		result += f"{item[INDEX_NAME]:{max_length}} {item[INDEX_QUANTITY] * item[INDEX_PRICE]: >10.2f} $" "\n"
 
+	return result
 
 def format_number(number, num_decimal_digits):
-	return ""
+	pass #voir v.p.
+
 
 def get_triangle(num_rows):
-	return ""
+	A = "A"
+	B = "+"
+	C = " "
+	border = B + B * 2 * num_rows
+	triangle = B + C * (num_rows - 1) + A + C * (num_rows - 1) + B
+	for i in range(1, num_rows):
+		triangle += "\n" + B + C * (num_rows - 1 * i -1) + A * i + A + A * i + C * (num_rows - 1 * i - 1) + B
+	return border + "\n" + triangle + "\n" + border
 
 
 if __name__ == "__main__":

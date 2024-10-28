@@ -59,7 +59,6 @@ def format_number(number, num_decimal_digits):
 	# Séparer les parties entière et décimale
 	decimal_part = abs(number) % 1.0
 	whole_part = int(abs(number))
-
 	# Formater la partie décimale
 	decimal_str = str(int(round(decimal_part * 10**num_decimal_digits)))
 	decimal_str = "." + decimal_str + "0" * (num_decimal_digits - len(decimal_str))

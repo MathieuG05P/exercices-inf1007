@@ -4,19 +4,22 @@
 
 def order(values: list = None) -> list:
     if values is None:
-        # TODO: demander les valeurs ici
-        pass
+        values = []
+        while len(values) > 10:
+            values.append(input())
+    num_values = [float(value) for value in values if value.isdigit()]
+    str_values = [value for value in values if not value.isdigit()]
 
-    return []
+    return sorted(num_values) + sorted(str_values)
 
 
 def anagrams(words: list = None) -> bool:
     if words is None:
-        # TODO: demander les mots ici
-        pass
+        words = []
+        while len(words) < 2:
+            words.append(input("Please enter string\n"))
 
-    return False
-
+    return sorted(words[0]) == sorted(words[1])
 
 def contains_doubles(items: list) -> bool:
     return False
@@ -36,8 +39,10 @@ def frequence(sentence: str) -> dict:
 
 def get_recipes():
     # TODO: Demander le nom d'une recette, puis ses ingredients et enregistrer dans une structure de données
-    pass
-
+    recette = input("nom rec. : \n")   
+    ingredient = input("noms ing. avec , : \n").split(",")
+    dictr = {recette: ingredient}
+    print(dictr)
 
 def print_recipe(ingredients) -> None:
     # TODO: Demander le nom d'une recette, puis l'afficher si elle existe

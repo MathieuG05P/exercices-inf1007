@@ -5,11 +5,14 @@ import math
 
 
 def get_num_letters(text):
-	return 0
+	nb_let = 0
+	for letter in text:
+		nb_let += int(letter.isalnum())
+	return nb_let
 
 def get_word_length_histogram(text):
-	return [0]
 
+	return text.split()
 def format_histogram(histogram):
 	ROW_CHAR = "*"
 

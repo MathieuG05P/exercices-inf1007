@@ -5,10 +5,18 @@ import random
 
 
 def get_first_part_of_name(name):
-	return ""
+    premiernom = name.split("-")[0]
+    a = premiernom.lower()
+    b = a.capitalize()
+    return "Bonjour" + " " + b
 
 def get_random_sentence(animals, adjectives, fruits):
-	return ""
+	sentence_template = "Aujourd’hui, j’ai vu un %s s’emparer d’un panier %s plein de %s."
+	animal_word = animals[random.randrange(0, len(animals))]
+	adject_word = adjectives[random.randrange(0, len(adjectives))]
+	fruit_word = fruits[random.randrange(0, len(fruits))]
+	words = [animal_word, adject_word, fruit_word]
+	return sentence_template % tuple(words)
 
 def format_date(year, month, day, hours, minutes, seconds):
 	return ""

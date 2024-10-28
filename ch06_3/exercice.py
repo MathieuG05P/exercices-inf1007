@@ -7,12 +7,15 @@ import itertools
 
 
 def get_maximums(numbers):
-	return [0]
+    
+	return [max(element) for element in numbers]
 
 def join_integers(numbers):
-	return 0
+	return int("".join([str(elem) for elem in numbers]))
 
 def generate_prime_numbers(limit):
+    premier = []
+    nombre = 
 	return [0]
 
 def combine_strings_and_numbers(strings, num_combinations, excluded_multiples):

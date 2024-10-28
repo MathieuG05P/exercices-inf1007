@@ -36,6 +36,9 @@ def build_quotes_callback(bot, quotes):
 		bot.send_privmsg(random_quote)
 	return callback
 
+    
+    
+    
 def run_ch8_example(config_filename, quotes_filename):
 	config, _ = load_config(config_filename)
 	quotes = load_quotes(quotes_filename)

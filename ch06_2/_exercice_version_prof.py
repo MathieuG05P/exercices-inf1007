@@ -9,7 +9,6 @@ def list_to_dict(some_list: list) -> dict:
     my_dict = dict()
     for index, elem in enumerate(some_list):
         my_dict[elem] = index
-
     return my_dict
 
     """

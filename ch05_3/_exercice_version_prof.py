@@ -27,15 +27,15 @@ def format_histogram(histogram):
 
 	# Approche avec compréhension de liste
 	alignment = len(str(len(histogram) - 1))
-	return "\n".join([f"{i : >{alignment}} {ROW_CHAR * elem}" for i, elem in enumerate(histogram) if i != 0])
+	#return "\n".join([f"{i : >{alignment}} {ROW_CHAR * elem}" for i, elem in enumerate(histogram) if i != 0])
 
 	# Approche avec boucles
-	#result = ""
-	#for i, elem in enumerate(histogram):
-	#	if i == 0:
-	#		continue
-	#	result += f"{i : >{alignment}} {ROW_CHAR * elem}" + "\n"
-	#return result
+	result = ""
+	for i, elem in enumerate(histogram):
+		if i == 0:
+			continue
+		result += f"{i : >{alignment}} {ROW_CHAR * elem}" + "\n"
+	return result
 
 def format_horizontal_histogram(histogram):
 	BLOCK_CHAR = "|"
